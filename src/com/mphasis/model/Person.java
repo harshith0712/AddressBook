@@ -5,7 +5,7 @@ import java.math.BigInteger;
 /*
 @author : harshith kolagatla
 Created Date : 22nd october 2020
-Functionality : to get the members from the user for adress book
+Functionality : to get the members from the user for address book
 * */
 public class Person {
     private String firstName;
@@ -54,7 +54,7 @@ public class Person {
         this.lastName = lastName;
     }
     /*
-    Functionality : to get and set value of adress name
+    Functionality : to get and set value of address name
     @param taken first name as argument
     @param returned fist name as agrument
     * */

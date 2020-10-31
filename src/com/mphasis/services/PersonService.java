@@ -8,11 +8,11 @@ public class PersonService {
     public final String comma=" ";
     public void addPerson()throws Exception {
 
-
-
+        Person persondata=new Person("First Name","Last Name","Address","City","State","Pin-code","Number");
         Person persondata1 = new Person("harshith", "kolagatla", "gandhi nagar", "chennai", "tamil nadu", "631003", "9440036362");
         Person persondata2=new Person("kolli","kiran","nehru nagar","delhi","delhi","123456","1234567890") ;
         ArrayList<Person> list=new ArrayList<Person>();
+        list.add(persondata);
         list.add(persondata1);
         list.add(persondata2);
         File add=new File("D:\\AddressBook\\address_book\\AddressBook.csv");
@@ -93,8 +93,12 @@ public class PersonService {
     }
 
 
-    public void sortPersonByLastName() {
+    public void sortPersonByLastName()throws Exception {
         //code
+        String i;
+        File sort = new File("D:\\AddressBook\\address_book\\AddressBook.csv");
+        CSVReader reader = new CSVReader(new FileReader(sort));
+        List<String[]> csvbody = reader.readAll();
     }
     public  void sortPersonByZipCode() {
         //code

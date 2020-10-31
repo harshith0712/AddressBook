@@ -17,20 +17,20 @@ public class AddressBookService {
         }
     }
     public void openExistingAddressBook()throws Exception {
-        Scanner sc = new Scanner(new File("D:\\AddressBook\\address_book\\AddressBook.csv"));
-        sc.useDelimiter(",");
-        while (sc.hasNext()) {
-            System.out.print(sc.next());
+        Scanner scanner = new Scanner(new File("D:\\AddressBook\\address_book\\AddressBook.csv"));
+        scanner.useDelimiter(" ");
+        while (scanner.hasNext()) {
+            System.out.print(scanner.next());
         }
 
-        sc.close();
+        scanner.close();
     }
-    public void QuitAddressBook() {
+    public void deleteAddressBook() {
         File quit = new File("D:\\AddressBook\\address_book\\AddressBook.csv");
-        if (quit.delete()) {
+        if (quit.delete())
             System.out.println("Deleted the file: " + quit.getName());
-        } else {
+        else
             System.out.println("Failed to delete the file.");
-        }
+
     }
 }

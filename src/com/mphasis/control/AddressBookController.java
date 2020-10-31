@@ -23,7 +23,7 @@ public class AddressBookController {
     }
     public void modify() throws Exception {
         PersonService person_service=new PersonService();
-        person_service.editDetailsOFPerson(1,2,"Villers");
+        person_service.editDetailsOFPerson(1,2,"gandhi");
     }
     public void deleteRecord() throws Exception {
         System.out.println("enter which line to be deleted");
@@ -36,8 +36,8 @@ public class AddressBookController {
         PersonService person_service=new PersonService();
         person_service.allPersons();
     }
-    public void quit() {
+    public void deleteFile() {
         AddressBookService address_service = new AddressBookService();
-        address_service.QuitAddressBook();
+        address_service.deleteAddressBook();
     }
 }
