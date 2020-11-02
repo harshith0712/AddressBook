@@ -40,4 +40,20 @@ public class AddressBookController {
         AddressBookService address_service = new AddressBookService();
         address_service.deleteAddressBook();
     }
+    public void printPerson()throws Exception {
+        int line;
+        Scanner scanner =new Scanner(System.in);
+        System.out.println("enter the line");
+        line=scanner.nextInt();
+        PersonService personService=new PersonService();
+        personService.printPersonDetails(line);
+    }
+    public void sortPersonLastName()throws Exception {
+        PersonService personService=new PersonService();
+        personService.sortPersonByLastName();
+    }
+    public void sortPersonPinCode()throws Exception {
+        PersonService personService=new PersonService();
+        personService.sortPersonByZipCode();
+    }
 }

@@ -10,15 +10,18 @@ public class AddressBook {
 
         Scanner scanner=new Scanner(System.in);
         boolean i=true;
-        while (i==true) {
+        while (i) {
             System.out.println("1. to create a new csv file");
             System.out.println("2. to open the csv file");
             System.out.println("3. to add person data");
             System.out.println("4. to modify person data");
             System.out.println("5. to delete a person data");
             System.out.println("6. to display all persons data in the file");
-            System.out.println("7. to delete the file");
-            System.out.println("8. to quit the program");
+            System.out.println("7 to display single person record");
+            System.out.println("8. to sort person by last name");
+            System.out.println("9. to sort person by zip code");
+            System.out.println("10. to delete the file");
+            System.out.println("11. to quit the program");
             System.out.println("enter the option");
             int option =scanner.nextInt();
         switch (option) {
@@ -41,13 +44,21 @@ public class AddressBook {
                 address_controller.allPersons();
                 break;
             case 7:
-                address_controller.deleteFile();
+                address_controller.printPerson();
                 break;
             case 8:
+                address_controller.sortPersonLastName();
+                break;
+            case 9:
+                address_controller.sortPersonPinCode();
+                break;
+            case 10:
+                address_controller.deleteFile();
+                break;
+            case 11:
                 System.out.println("address book has end");
                 i=false;
                 break;
-
             default:
                 System.out.println("enter correct option");
                 break;

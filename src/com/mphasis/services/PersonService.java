@@ -92,21 +92,47 @@ public class PersonService {
 
     }
 
-
     public void sortPersonByLastName()throws Exception {
-        //code
-        String i;
-        File sort = new File("D:\\AddressBook\\address_book\\AddressBook.csv");
-        CSVReader reader = new CSVReader(new FileReader(sort));
-        List<String[]> csvbody = reader.readAll();
+        String csvFile = "D:\\AddressBook\\address_book\\AddressBook.csv";
+        String line = "";
+        String cvsSplitBy = ",";
+        List<List<String>> llp = new ArrayList<>();
+        BufferedReader br = new BufferedReader(new FileReader(csvFile));
+            while ((line = br.readLine()) != null) {
+                llp.add(Arrays.asList(line.split(cvsSplitBy)));
+            }
+            llp.sort(new Comparator<List<String>>() {
+                @Override
+                public int compare(List<String> o1, List<String> o2) {
+                    return o1.get(1).compareTo(o2.get(1));
+                }
+            });
+            br.toString();
+            br.close();
     }
-    public  void sortPersonByZipCode() {
-        //code
+    public  void sortPersonByZipCode()throws Exception {
+        String csvFile = "D:\\AddressBook\\address_book\\AddressBook.csv";
+        String line = "";
+        String cvsSplitBy = ",";
+        List<List<String>> llp = new ArrayList<>();
+        BufferedReader br = new BufferedReader(new FileReader(csvFile));
+        while ((line = br.readLine()) != null) {
+            llp.add(Arrays.asList(line.split(cvsSplitBy)));
+        }
+        llp.sort(new Comparator<List<String>>() {
+            @Override
+            public int compare(List<String> o1, List<String> o2) {
+                return (Integer.valueOf(o1.get(5)).compareTo(Integer.valueOf(o2.get(5))));
+            }
+        });
+        br.toString();
+        br.close();
+
     }
 
     public void allPersons()throws Exception {
         Scanner sc = new Scanner(new File("D:\\AddressBook\\address_book\\AddressBook.csv"));
-        sc.useDelimiter(",");
+        sc.useDelimiter(" ");
         while (sc.hasNext()) {
             System.out.print(sc.next());
         }
@@ -115,7 +141,18 @@ public class PersonService {
 
 
     }
-    public void printPersonDetails() {
+    public void printPersonDetails(int line)throws Exception {
+        File single=new File("D:\\AddressBook\\address_book\\AddressBook.csv");
+        CSVReader reader = new CSVReader(new FileReader(single), ' ');
+        List<String[]> csvBody = reader.readAll();
+        System.out.println(csvBody.toArray(csvBody.get(line)));
+        reader.close();
+        CSVWriter writer = new CSVWriter(new FileWriter(single), ' ');
+        writer.writeAll(csvBody);
+        writer.flush();
+        writer.close();
+
+
 
 
     }
